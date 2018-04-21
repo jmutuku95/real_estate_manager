@@ -1,6 +1,7 @@
 from api.views.auth import AuthResource
 from api.views.board import BoardResource, BoardMembersResource
 from api.views.conversation import ConversationResource
+from api.views.estate import EstateResource
 from api.views.message import MessageResource
 from api.views.role import RoleResource, RoleUsersResource
 from api.views.user import (
@@ -37,6 +38,11 @@ def add_resources(api):
         '/api/v1/conversations/',
         '/api/v1/conversations/<int:conversation_id>',
         '/api/v1/conversations/<int:conversation_id>/')
+
+    api.add_resource(
+        EstateResource,
+        '/api/v1/estates/<int:estate_id>',
+        '/api/v1/estates/<int:estate_id>')
 
     api.add_resource(
         MessageResource,

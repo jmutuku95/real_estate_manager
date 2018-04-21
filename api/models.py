@@ -392,6 +392,12 @@ class Board(BaseModel):
                                    uselist=False,
                                    cascade="all,delete")
 
+    def __repr__(self):
+        return {
+            'id': self.id,
+            'members': [i.view_public() for i in self.members]
+        }
+
     def view(self):
         board = self.serialize()
         board.update({'members': [i.view_public() for i in self.members]})
@@ -425,7 +431,11 @@ class Estate(BaseModel):
         return {'id': self.id, 'address': self.address}
 
     def view(self):
-        pass
+        estate = self.serialize()
+        estate.update({'board': self.board.__repr__()})
+        estate.update({'payment': self.payment.__repr__()})
+        estate.update({'units': [unit.view() for unit in self.estate_units]})
+        return estate
 
 
 class Unit(BaseModel):
@@ -455,7 +465,10 @@ class Unit(BaseModel):
                 'estate': self.estate.__repr__()}
 
     def view(self):
-        pass
+        unit = self.serialize()
+        unit.update({'estate': self.estate.__repr__()})
+        unit.update({'payment': self.payment.__repr__()})
+        unit.update({'board': self.board.__repr__()})
 
 
 class Wallet(BaseModel):
@@ -473,6 +486,12 @@ class Wallet(BaseModel):
     user_id = db.Column(db.Integer(),
                         db.ForeignKey('user.id'),
                         nullable=True)
+
+    def __repr__(self):
+        {
+            'id': self.id,
+            'balance': self.balance
+        }
 
     def view(self):
         wallet = self.serialize()
@@ -505,6 +524,13 @@ class Payment(BaseModel):
     wallet_id = db.Column(db.Integer(),
                           db.ForeignKey('wallet.id'),
                           nullable=True)
+
+    def __repr__(self):
+        return {
+            'id': self.id,
+            'required': self.required,
+            'balance': self.balance
+        }
 
     def view(self):
         payment = self.serialize()

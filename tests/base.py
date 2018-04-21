@@ -70,18 +70,16 @@ class BaseCase(TestCase):
             'bad_field': "random"}
         self.wallet1 = Wallet()
         self.wallet2 = Wallet()
+        self.board3_dict = {'members': [1, 2]}
+        self.conversation3_dict = {
+            "participants": [1, 2]}
+        self.message4_dict = {
+            "content": "New Message."}
         self.user1_dict = {
             "name": "First1 Middle1 Last1",
             "phone_number": "000 12 3456781",
             "email": "first1.last1@email.com",
             "password": "ABC123!@#"}
-        self.conversation3_dict = {
-            "participants": [1, 2]
-        }
-        self.message4_dict = {
-            "content": "New Message."
-        }
-        self.board3_dict = {'members': [1, 2]}
 
     def tearDown(self):
         """

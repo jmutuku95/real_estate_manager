@@ -4,6 +4,10 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/sirghiny/real_estate_manager/badge.svg?branch=create-more-views)](https://coveralls.io/github/sirghiny/real_estate_manager?branch=create-more-views)
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/sirghiny/real_estate_manager?branch=develop)](https://bettercodehub.com/)
+
+[![codebeat badge](https://codebeat.co/badges/1298edeb-8a19-416b-8a85-7a4c48b1a6e1)](https://codebeat.co/projects/github-com-sirghiny-real_estate_manager-develop)
+
 ***
 
 ### Set-Up:
